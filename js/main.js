@@ -1,5 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
 
+    let projectsUp = false;
+
     const typedText = document.querySelector('.txt-ecrit');
     const responseLine = document.querySelector('.reponse-console');
 
@@ -10,10 +12,26 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.body.appendChild(projectGrid);
 
+    function showProjects()
+    {
+        nameBox.classList.add('top-position');
+        projectGrid.classList.add('visible');
+        responseLine.textContent = '';
+        iconsList.classList.add('hidden');
+    }
+
+    function hideProjects()
+    {
+        nameBox.classList.remove('top-position');
+        projectGrid.classList.remove('visible');
+        responseLine.textContent = '';
+        iconsList.classList.remove('hidden');
+    }
+
     const projects = [
-        { title: 'Lorem 1', body: 'test desc 1' },
-        { title: 'Ipsum 2', body: 'test desc 2' },
-        { title: 'Dolor 3', body: 'test desc 3' },
+        { title: 'CHIP8', body: 'Un interpréteur de CHIP8 réalisé en C++ avec SDL2<br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/CHIP8-Interpreter" target="_blank" style="color:#9ff;text-decoration:underline;">ici</a>'},
+        { title: 'Snake avec Pathfinding', body: 'Un jeu de snake autonome capable de trouver le chemin le plus court en évitant les pavés, réalisé en C dans le cadre d\'un projet à l\'IUT<br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/SnakeIBC" target="_blank" style="color:#9ff;text-decoration:underline;">ici</a>' },
+        { title: 'LCCore', body: 'Un plugin sécurisé et multifonctions pour un serveur Minecraft, réalisé en Java <br>Vous pouvez trouver le projet <a href="https://github.com/Leg0shii/LCCore/tree/prod" target="_blank" style="color:#9ff;text-decoration:underline;">ici</a>' },
         { title: 'Sit 3', body: 'test desc 4' },
         { title: 'Amet 3', body: 'test desc 5' },
         { title: 'Consectetur 4', body: 'test desc 6' }
@@ -51,24 +69,22 @@ window.addEventListener('DOMContentLoaded', () => {
         else if(e.key === 'Enter')
         {
             const command = typedText.textContent.trim();
+            if(projectsUp)
+            {
+                hideProjects();
+            }
             if(command === 'help')
             {
-
                 responseLine.innerHTML = helpString;
             }
             else if(command === 'projects' || command === 'projets')
             {
-                nameBox.classList.add('top-position');
-                projectGrid.classList.add('visible');
-                responseLine.textContent = '';
-                iconsList.classList.add('hidden');
+                showProjects();
+                projectsUp = true;
             }
             else if(command === 'back')
             {
-                nameBox.classList.remove('top-position');
-                projectGrid.classList.remove('visible');
-                responseLine.textContent = '';
-                iconsList.classList.remove('hidden');
+                hideProjects();
 
             }
             else if(command === 'linkedin' || command === 'Linkedin' || command === 'LinkedIn')
@@ -79,9 +95,13 @@ window.addEventListener('DOMContentLoaded', () => {
             {
                 responseLine.innerHTML = 'Voici mon GitHub : <a href="https://github.com/QuartzWasTaken" target="_blank" style="color:#9ff;text-decoration:underline;">cliquer ici</a>';
             }
+            else if(command === 'todo')
+            {
+                responseLine.innerHTML = 'Il faut :<br>Ajouter un "à propos"<br>ajouter une présentation de chaque projet<br>(optionel) pouvoir cliquer sur les titres des projets';
+            }
             else
             {
-                responseLine.textContent = '';
+                responseLine.innerHTML = `Commande '${command}' non reconnue`;
             }
             typedText.textContent = '';
         }

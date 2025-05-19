@@ -10,6 +10,8 @@ body
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    background-image: url("../assets/background.jpg")
 }
 
 .gabriel-gourdon
@@ -138,17 +140,17 @@ body
 }
 
 
-.grille-projets::-webkit-scrollbar
+.grille-projets::-webkit-scrollbar .reponse-console::-webkit-scrollbar
 {
     width: 8px;
 }
 
-.grille-projets::-webkit-scrollbar-track
+.grille-projets::-webkit-scrollbar-track .reponse-console::-webkit-scrollbar-track
 {
     background: #333;
 }
 
-.grille-projets::-webkit-scrollbar-thumb
+.grille-projets::-webkit-scrollbar-thumb .reponse-console::-webkit-scrollbar-thumb
 {
     background-color: #666;
     border-radius: 4px;
