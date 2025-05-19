@@ -122,8 +122,8 @@ body
     gap: 2rem;
     padding: 8rem 2rem 2rem;
     width: 100%;
-    max-height: 900px; /* Limite la hauteur à 600px (ajustez selon besoin) */
-    overflow-y: auto;  /* Active le scroll vertical */
+    max-height: 900px;
+    overflow-y: auto;  
     box-sizing: border-box;
     opacity: 0;
     pointer-events: none;
@@ -131,7 +131,7 @@ body
     position: absolute;
     top: 0;
     z-index: 1;
-    scrollbar-width: thin; /* Pour Firefox */
+    scrollbar-width: thin; 
     scrollbar-color: #666 #333;
     -webkit-mask-image: linear-gradient(to bottom, transparent, black 100px, black calc(100% - 50px), transparent 100%);
     mask-image: linear-gradient(to bottom, transparent, black 100px, black calc(100% - 50px), transparent 100%);
@@ -194,16 +194,23 @@ body
     align-items: center;
     z-index: 3;
     position: absolute;
-    top: calc(50% + 4.5rem); /* un peu en dessous du nom */
+    top: calc(50% + 4.5rem);
     left: 50%;
     transform: translateX(-50%);
-  }
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+}
   
-  .social-icons a svg {
+.social-icons a svg {
     cursor: pointer;
     transition: stroke 0.3s ease;
-  }
+}
   
-  .social-icons a:hover svg {
-    stroke: #8f8; /* Par exemple un vert clair au hover */
-  }
+.social-icons a:hover svg {
+    stroke: #8f8;
+}
+  
+.social-icons.hidden {
+    opacity: 0;
+    pointer-events: none;
+}

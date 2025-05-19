@@ -1,9 +1,12 @@
 window.addEventListener('DOMContentLoaded', () => {
+
     const typedText = document.querySelector('.txt-ecrit');
     const responseLine = document.querySelector('.reponse-console');
+
     const nameBox = document.querySelector('.gabriel-gourdon');
     const projectGrid = document.createElement('div');
     projectGrid.classList.add('grille-projets');
+    const iconsList = document.querySelector('.social-icons');
 
     document.body.appendChild(projectGrid);
 
@@ -58,12 +61,15 @@ window.addEventListener('DOMContentLoaded', () => {
                 nameBox.classList.add('top-position');
                 projectGrid.classList.add('visible');
                 responseLine.textContent = '';
+                iconsList.classList.add('hidden');
             }
             else if(command === 'back')
             {
                 nameBox.classList.remove('top-position');
                 projectGrid.classList.remove('visible');
                 responseLine.textContent = '';
+                iconsList.classList.remove('hidden');
+
             }
             else if(command === 'linkedin' || command === 'Linkedin' || command === 'LinkedIn')
             {
