@@ -10,6 +10,9 @@ window.addEventListener('DOMContentLoaded', () => {
     projectGrid.classList.add('grille-projets');
     const iconsList = document.querySelector('.social-icons');
 
+    let commandesExecutees = [];
+    let commandeASelectionner = 0;
+
     document.body.appendChild(projectGrid);
 
     function showProjects()
@@ -29,9 +32,9 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     const projects = [
-        { title: 'CHIP8', body: 'Un interpréteur de CHIP8 réalisé en C++ avec SDL2<br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/CHIP8-Interpreter" target="_blank" style="color:#9ff;text-decoration:underline;">ici</a>'},
-        { title: 'Snake avec Pathfinding', body: 'Un jeu de snake autonome capable de trouver le chemin le plus court en évitant les pavés, réalisé en C dans le cadre d\'un projet à l\'IUT<br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/SnakeIBC" target="_blank" style="color:#9ff;text-decoration:underline;">ici</a>' },
-        { title: 'LCCore', body: 'Un plugin sécurisé et multifonctions pour un serveur Minecraft, réalisé en Java <br>Vous pouvez trouver le projet <a href="https://github.com/Leg0shii/LCCore/tree/prod" target="_blank" style="color:#9ff;text-decoration:underline;">ici</a>' },
+        { title: 'CHIP8', body: 'Un interpréteur de CHIP8 réalisé en C++ avec SDL2<br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/CHIP8-Interpreter" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>'},
+        { title: 'Snake avec Pathfinding', body: 'Un jeu de snake autonome capable de trouver le chemin le plus court en évitant les pavés, réalisé en C dans le cadre d\'un projet à l\'IUT<br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/SnakeIBC" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>' },
+        { title: 'LCCore', body: 'Un plugin sécurisé et multifonctions pour un serveur Minecraft, réalisé en Java <br>Vous pouvez trouver le projet <a href="https://github.com/Leg0shii/LCCore/tree/prod" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>' },
         { title: 'Sit 3', body: 'test desc 4' },
         { title: 'Amet 3', body: 'test desc 5' },
         { title: 'Consectetur 4', body: 'test desc 6' }
@@ -89,11 +92,11 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             else if(command === 'linkedin' || command === 'Linkedin' || command === 'LinkedIn')
             {
-                responseLine.innerHTML = 'Voici mon LinkedIn : <a href="https://fr.linkedin.com/in/gabriel-gourdon-974a70355" target="_blank" style="color:#9ff;text-decoration:underline;">cliquer ici</a>';
+                responseLine.innerHTML = 'Voici mon LinkedIn : <a href="https://fr.linkedin.com/in/gabriel-gourdon-974a70355" target="_blank" style="color:#f80040;text-decoration:underline;">cliquer ici</a>';
             }
             else if(command === 'github' || command === 'Github' || command === 'GitHub')
             {
-                responseLine.innerHTML = 'Voici mon GitHub : <a href="https://github.com/QuartzWasTaken" target="_blank" style="color:#9ff;text-decoration:underline;">cliquer ici</a>';
+                responseLine.innerHTML = 'Voici mon GitHub : <a href="https://github.com/QuartzWasTaken" target="_blank" style="color:#f80040;text-decoration:underline;">cliquer ici</a>';
             }
             else if(command === 'todo')
             {
@@ -101,7 +104,11 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             else
             {
-                responseLine.innerHTML = `Commande '${command}' non reconnue`;
+                responseLine.innerHTML = `Commande '${command}' non reconnue - taper "help" pour afficher la liste des commandes`;
+            }
+            if(typedText.textContent != '')
+            {
+                commandesExecutees.push(typedText.textContent);
             }
             typedText.textContent = '';
         }
