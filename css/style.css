@@ -51,7 +51,7 @@ body
     color: #ccc;
     font-family: Consolas, monospace;
     box-sizing: border-box;
-    z-index: 10;
+    z-index: 3;
     white-space: pre-wrap;
     max-height: 150px;
     overflow-y: auto;
@@ -81,6 +81,7 @@ body
     align-items: center;
     font-family: Consolas, monospace;
     pointer-events: none;
+    z-index: 4;
 }
 
 .ligne-console span.prompt
@@ -136,6 +137,7 @@ body
     z-index: 1;
     scrollbar-width: thin; 
     scrollbar-color: #666 #333;
+
     -webkit-mask-image: linear-gradient(to bottom, transparent, black 100px, black calc(100% - 50px), transparent 100%);
     mask-image: linear-gradient(to bottom, transparent, black 100px, black calc(100% - 50px), transparent 100%);
 }
