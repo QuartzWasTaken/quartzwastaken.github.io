@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     let projectsUp = false;
+    let aboutUp = false;
 
     const typedText = document.querySelector('.txt-ecrit');
     const responseLine = document.querySelector('.reponse-console');
@@ -10,25 +11,52 @@ window.addEventListener('DOMContentLoaded', () => {
     projectGrid.classList.add('grille-projets');
     const iconsList = document.querySelector('.social-icons');
 
+    const fenetreAbout = document.querySelector('.fenetre-about');
+    const grilleProjets = document.querySelector('.grille-projets');
+
     let commandesExecutees = [];
     let commandeASelectionner = -1;
 
     document.body.appendChild(projectGrid);
 
-    function showProjects()
+    function monterNom()
     {
         nameBox.classList.add('top-position');
+        iconsList.classList.add('hidden');
+    }
+
+    function descendreNom()
+    {
+        nameBox.classList.remove('top-position');
+        iconsList.classList.remove('hidden');
+    }
+
+    function showProjects()
+    {
+        monterNom();
         projectGrid.classList.add('visible');
         responseLine.textContent = '';
-        iconsList.classList.add('hidden');
     }
 
     function hideProjects()
     {
-        nameBox.classList.remove('top-position');
+        descendreNom();
         projectGrid.classList.remove('visible');
         responseLine.textContent = '';
-        iconsList.classList.remove('hidden');
+    }
+
+    function showAbout()
+    {
+        hideProjects();
+        monterNom();
+        fenetreAbout.classList.add('visible');
+    }
+
+    function hideAbout()
+    {
+        descendreNom();
+        hideProjects();
+        fenetreAbout.classList.remove('visible');    
     }
 
     const projects = [
@@ -41,8 +69,8 @@ window.addEventListener('DOMContentLoaded', () => {
     ];
 
     const helpStringArray = [
+        "<strong>about    - Afficher la section \"À propos\"</strong>",
         "<strong>projects - Afficher mes projets</strong>",
-        "back     - revenir en arrière depuis la liste des projets",
         "linkedin - Afficher un lien vers ma page LinkedIn",
         "github   - Afficher un lien vers mon profil GitHub",
         "help     - afficher cette liste"
@@ -93,6 +121,12 @@ window.addEventListener('DOMContentLoaded', () => {
             {
                 hideProjects();
             }
+
+            if(aboutUp)
+            {
+                hideAbout();
+            }
+
             if(command === 'help')
             {
                 responseLine.innerHTML = helpString;
@@ -101,11 +135,19 @@ window.addEventListener('DOMContentLoaded', () => {
             {
                 showProjects();
                 projectsUp = true;
+                responseLine.innerHTML = "Tapez \"back\" ou une autre commande pour cacher la liste des projets"
+            }
+            else if(command === 'about' || command === 'About')
+            {
+                showAbout();
+                aboutUp = true;
             }
             else if(command === 'back')
             {
                 hideProjects();
-
+                hideAbout();
+                projectsUp = false;
+                aboutUp = false;
             }
             else if(command === 'linkedin' || command === 'Linkedin' || command === 'LinkedIn')
             {
