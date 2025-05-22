@@ -60,6 +60,14 @@ window.addEventListener('DOMContentLoaded', () => {
         projectGrid.appendChild(card);
     });
 
+    document.querySelectorAll('a').forEach(button => {
+        button.addEventListener('click', () => {
+          console.log('Bouton cliqué');
+      
+          button.blur();
+        });
+      });
+
     document.addEventListener('keydown', (e) => {
         if(e.key.length === 1)
         {
