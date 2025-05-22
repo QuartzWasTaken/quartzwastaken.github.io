@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const iconsList = document.querySelector('.social-icons');
 
     let commandesExecutees = [];
-    let commandeASelectionner = 0;
+    let commandeASelectionner = -1;
 
     document.body.appendChild(projectGrid);
 
@@ -65,6 +65,15 @@ window.addEventListener('DOMContentLoaded', () => {
         {
             typedText.textContent += e.key;
         }
+        else if(e.key === 'ArrowUp')
+        {
+            if(commandeASelectionner < 0)
+            {
+                commandeASelectionner = -1;
+            }
+            typedText.textContent = commandesExecutees[commandeASelectionner];
+            commandeASelectionner--;
+        }
         else if(e.key === 'Backspace')
         {
             typedText.textContent = typedText.textContent.slice(0, -1);
@@ -109,8 +118,9 @@ window.addEventListener('DOMContentLoaded', () => {
             if(typedText.textContent != '')
             {
                 commandesExecutees.push(typedText.textContent);
+                commandeASelectionner = commandesExecutees.length - 1;
             }
             typedText.textContent = '';
         }
     });
-});
+})
