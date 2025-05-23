@@ -62,10 +62,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const projects = [
         { title: 'CHIP8', body: 'Un interpréteur de CHIP8 réalisé en C++ avec SDL2<br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/CHIP8-Interpreter" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>'},
         { title: 'Snake avec Pathfinding', body: 'Un jeu de snake autonome capable de trouver le chemin le plus court en évitant les pavés, réalisé en C dans le cadre d\'un projet à l\'IUT<br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/SnakeIBC" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>' },
-        { title: 'LCCore', body: 'Un plugin sécurisé et multifonctions pour un serveur Minecraft, réalisé en Java <br>Vous pouvez trouver le projet <a href="https://github.com/Leg0shii/LCCore/tree/prod" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>' },
-        { title: 'Sit 3', body: 'test desc 4' },
-        { title: 'Amet 3', body: 'test desc 5' },
-        { title: 'Consectetur 4', body: 'test desc 6' }
+        { title: 'LCCore', body: 'Un plugin sécurisé et multifonctions pour un serveur Minecraft, réalisé en Java <br>Vous pouvez trouver le projet <a href="https://github.com/Leg0shii/LCCore/tree/prod" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>' }
     ];
 
     const helpStringArray = [
