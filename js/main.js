@@ -156,7 +156,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             else if(command === 'todo')
             {
-                responseLine.innerHTML = 'Il faut :<br>Ajouter un "à propos"<br>ajouter une présentation de chaque projet<br>(optionel) pouvoir cliquer sur les titres des projets';
+                responseLine.innerHTML = 'Il faut :<br>Afficher l\'indice "help" après avoir fait back<br>ajouter une présentation de chaque projet<br><strong>Ajouter des publications</strong>';
             }
             else
             {
