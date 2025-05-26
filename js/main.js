@@ -138,6 +138,7 @@ window.addEventListener('DOMContentLoaded', () => {
             {
                 showAbout();
                 aboutUp = true;
+                responseLine.innerHTML = "Tapez \"back\" ou une autre commande pour cacher la section \"À propos\""
             }
             else if(command === 'back')
             {
@@ -145,10 +146,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 hideAbout();
                 projectsUp = false;
                 aboutUp = false;
+                responseLine.innerHTML = "Tapez \"help\" pour afficher la liste des commandes"
             }
             else if(command === 'linkedin' || command === 'Linkedin' || command === 'LinkedIn')
             {
-                responseLine.innerHTML = 'Voici mon LinkedIn : <a href="https://fr.linkedin.com/in/gabriel-gourdon-974a70355" target="_blank" style="color:#f80040;text-decoration:underline;">cliquer ici</a>';
+                responseLine.innerHTML = 'Voici mon LinkedIn : <a href="https://fr.linkedin.com/in/gabriel-gdn" target="_blank" style="color:#f80040;text-decoration:underline;">cliquer ici</a>';
             }
             else if(command === 'github' || command === 'Github' || command === 'GitHub')
             {
