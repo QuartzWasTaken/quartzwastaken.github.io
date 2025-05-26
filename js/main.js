@@ -158,7 +158,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             else if(command === 'todo')
             {
-                responseLine.innerHTML = 'Il faut :<br>Afficher l\'indice "help" après avoir fait back<br>ajouter une présentation de chaque projet<br><strong>Ajouter des publications</strong>';
+                responseLine.innerHTML = 'Il faut : mettre les icones en haut a droite dans projects/about<br><strong>Ajouter des publications</strong><br>Ajouter des photos de chaque projet<br>Ajouter lastupdate';
             }
             else
             {
