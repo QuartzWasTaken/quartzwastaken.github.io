@@ -19,6 +19,55 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.body.appendChild(projectGrid);
 
+    function handleCommand(cmd)
+    {
+        switch(cmd)
+        {
+            case "back":
+                hideProjects();
+                hideAbout();
+                projectsUp = false;
+                aboutUp = false;
+                responseLine.innerHTML = "Tapez \"help\" pour afficher la liste des commandes"
+                break;
+
+            case "help":
+                responseLine.innerHTML = helpString;
+                break;
+                
+            case "projects":
+            case "projets":
+            case "project":
+            case "projet":
+                showProjects();
+                projectsUp = true;
+                responseLine.innerHTML = "Tapez \"back\" ou une autre commande pour cacher la liste des projets"
+                break;
+
+            case "about":
+                showAbout();
+                aboutUp = true;
+                responseLine.innerHTML = "Tapez \"back\" ou une autre commande pour cacher la section \"À propos\""
+                break;
+
+            case "linkedin":
+            case "Linkedin":
+            case "LinkedIn":
+                responseLine.innerHTML = 'Voici mon LinkedIn : <a href="https://fr.linkedin.com/in/gabriel-gdn" target="_blank" style="color:#f80040;text-decoration:underline;">cliquer ici</a>';
+                break;
+
+            case "github":
+            case "Github":
+            case "GitHub":
+                responseLine.innerHTML = 'Voici mon GitHub : <a href="https://github.com/QuartzWasTaken" target="_blank" style="color:#f80040;text-decoration:underline;">cliquer ici</a>';
+                break;
+
+            default:
+                responseLine.innerHTML = `Commande '${cmd}' non reconnue - taper "help" pour afficher la liste des commandes`;
+                break;
+        }
+    }
+
     function monterNom()
     {
         nameBox.classList.add('top-position');
@@ -124,46 +173,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 hideAbout();
             }
 
-            if(command === 'help')
-            {
-                responseLine.innerHTML = helpString;
-            }
-            else if(command === 'projects' || command === 'projets')
-            {
-                showProjects();
-                projectsUp = true;
-                responseLine.innerHTML = "Tapez \"back\" ou une autre commande pour cacher la liste des projets"
-            }
-            else if(command === 'about' || command === 'About')
-            {
-                showAbout();
-                aboutUp = true;
-                responseLine.innerHTML = "Tapez \"back\" ou une autre commande pour cacher la section \"À propos\""
-            }
-            else if(command === 'back')
-            {
-                hideProjects();
-                hideAbout();
-                projectsUp = false;
-                aboutUp = false;
-                responseLine.innerHTML = "Tapez \"help\" pour afficher la liste des commandes"
-            }
-            else if(command === 'linkedin' || command === 'Linkedin' || command === 'LinkedIn')
-            {
-                responseLine.innerHTML = 'Voici mon LinkedIn : <a href="https://fr.linkedin.com/in/gabriel-gdn" target="_blank" style="color:#f80040;text-decoration:underline;">cliquer ici</a>';
-            }
-            else if(command === 'github' || command === 'Github' || command === 'GitHub')
-            {
-                responseLine.innerHTML = 'Voici mon GitHub : <a href="https://github.com/QuartzWasTaken" target="_blank" style="color:#f80040;text-decoration:underline;">cliquer ici</a>';
-            }
-            else if(command === 'todo')
-            {
-                responseLine.innerHTML = 'Il faut : mettre les icones en haut a droite dans projects/about<br><strong>Ajouter des publications</strong><br>Ajouter des photos de chaque projet<br>Ajouter lastupdate';
-            }
-            else
-            {
-                responseLine.innerHTML = `Commande '${command}' non reconnue - taper "help" pour afficher la liste des commandes`;
-            }
+            handleCommand(command);
+            
             if(typedText.textContent != '')
             {
                 commandesExecutees.push(typedText.textContent);
