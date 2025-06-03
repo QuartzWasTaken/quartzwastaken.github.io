@@ -211,7 +211,7 @@ body
     transition: stroke 0.3s ease;
 }
   
-.social-icons a:hover svg {
+.social-icons a:hover svg{
     stroke: #f80040;
 }
   
@@ -259,7 +259,7 @@ body
     scrollbar-color: #666 #333;
   }
   
-  /* Pour Chrome, Safari et Edge */
+  /* pour chrome, safari et edge */
   .contenu-about::-webkit-scrollbar {
     width: 8px;
   }
@@ -287,3 +287,8 @@ body
     line-height: 1.6;
   }
   
+
+  a, a:visited
+  {
+    color:#f80040;
+  }
