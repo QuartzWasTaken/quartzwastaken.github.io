@@ -110,9 +110,20 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     const projects = [
-        { title: 'CHIP8', body: 'En début de première année de BUT Informatique, je me suis retrouvé à vouloir approfondir ma connaissance du C++. J\'ai donc démarré un projet d\'émulateur de <a href="https://fr.wikipedia.org/wiki/CHIP-8" target="_blank">CHIP8</a>.<br>Au fil de ce projet, j\'ai eu l\'occasion de me familiariser avec le <strong>C++ et ses interactions avec la librairie graphique SDL2</strong>. Le résultat final de ce projet est un émulateur de CHIP8 fonctionnel.<br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/CHIP8-Interpreter" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>'},
-        { title: 'Snake avec Pathfinding', body: 'Un jeu de snake autonome capable de trouver le chemin le plus court en évitant les pavés, réalisé en C dans le cadre d\'un projet à l\'IUT<br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/SnakeIBC" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>' },
-        { title: 'LCCore', body: 'Un plugin sécurisé et multifonctions pour un serveur Minecraft, réalisé en Java <br>Vous pouvez trouver le projet <a href="https://github.com/Leg0shii/LCCore/tree/prod" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>' }
+        { title: 'CHIP8', body: `En début de première année de BUT Informatique, j'ai voulu approfondir ma connaissance du C++.
+            J'ai donc démarré un projet d\'émulateur de <a href="https://fr.wikipedia.org/wiki/CHIP-8" target="_blank">CHIP8</a>.
+            <br>Au fil de ce projet, j'ai eu l'occasion de me familiariser avec le <strong>C++ et ses interactions avec la librairie graphique SDL2</strong>.
+            Le résultat final de ce projet est un émulateur de CHIP8 fonctionnel.
+            <br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/CHIP8-Interpreter" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>`},
+
+        { title: 'Snake avec Pathfinding', body: `Dans le cadre de ma formation, l'IUT m'a confié un projet en C.
+            Dans le cadre de ce projet en collaboration, j'ai été amené à réaliser un <strong>jeu de Snake</strong> en étant soumis à une limite de temps et des restrictions précises.
+            Le projet complété est un Snake qui utilise un <a href="https://fr.wikipedia.org/wiki/Algorithme_A*" target="_blank">algorithme de pathfinding</a> qui prend en compte les obstacles sur le terrain.
+            <br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/SnakeIBC" target="_blank" style="text-decoration:underline;">ici</a>` },
+
+        { title: 'LCCore', body: `Pour résoudre les problèmes que je rencontrais avec un serveur Minecraft sur lequel je jouais, je me suis attelé moi-même à leur résolution.
+            J'ai contribué à l'ajout de <strong>nouvelles commandes</strong>, de renforcement de la sécurité et de nouvelles manières d'utiliser le chat.
+            <br>Vous pouvez trouver le projet <a href="https://github.com/Leg0shii/LCCore/tree/prod" target="_blank" style="text-decoration:underline;">ici</a>` }
     ];
 
     const helpStringArray = [
@@ -121,7 +132,7 @@ window.addEventListener('DOMContentLoaded', () => {
         "linkedin - Afficher un lien vers ma page LinkedIn",
         "github   - Afficher un lien vers mon profil GitHub",
         "help     - afficher cette liste"
-      ];
+    ];
 
     const helpString = helpStringArray.join('\n');
 
