@@ -126,8 +126,8 @@ body
     gap: 2rem;
     padding: 8rem 2rem 2rem;
     width: 100%;
-    max-height: 900px;
-    overflow-y: auto;  
+
+    overflow-y: visible;  
     box-sizing: border-box;
     opacity: 0;
     pointer-events: none;
@@ -173,7 +173,6 @@ body
     display: flex;
     flex-direction: column;
     font-size: 1.5rem;
-    height: 300px;
 }
 
 .project-header
@@ -191,7 +190,8 @@ body
     flex-grow: 1;
 }
 
-.social-icons {
+.social-icons
+{
     margin-top: 1rem;
     display: flex;
     gap: 2rem;
@@ -206,21 +206,25 @@ body
     transition: opacity 0.8s ease-in-out;
 }
   
-.social-icons a svg {
+.social-icons a svg
+{
     cursor: pointer;
     transition: stroke 0.3s ease;
 }
   
-.social-icons a:hover svg{
+.social-icons a:hover svg
+{
     stroke: #f80040;
 }
   
-.social-icons.hidden {
+.social-icons.hidden
+{
     opacity: 0;
     pointer-events: none;
 }
 
-.fenetre-about {
+.fenetre-about
+{
     position: absolute;
     top: 0;
     left: 0;
@@ -237,12 +241,14 @@ body
     z-index: 1;
   }
   
-  .fenetre-about.visible {
+  .fenetre-about.visible
+  {
     opacity: 1;
     pointer-events: auto;
   }
   
-  .contenu-about {
+  .contenu-about
+  {
     width: 100%;
     max-width: 1000px;
     height: 50vh;
@@ -260,21 +266,25 @@ body
   }
   
   /* pour chrome, safari et edge */
-  .contenu-about::-webkit-scrollbar {
+  .contenu-about::-webkit-scrollbar
+  {
     width: 8px;
   }
   
-  .contenu-about::-webkit-scrollbar-track {
+  .contenu-about::-webkit-scrollbar-track
+  {
     background: #333;
   }
   
-  .contenu-about::-webkit-scrollbar-thumb {
+  .contenu-about::-webkit-scrollbar-thumb
+  {
     background-color: #666;
     border-radius: 4px;
     border: 2px solid #333;
   }
   
-  .titre-about {
+  .titre-about
+  {
     background-color: #2e2e2e;
     padding: 0.5rem 1rem;
     font-size: 2.25rem;
@@ -282,13 +292,37 @@ body
     border-bottom: 1px solid #444;
   }
   
-  .texte-about {
+  .texte-about
+  {
     font-size: 1.5rem;
     line-height: 1.6;
   }
   
 
-  a, a:visited
+  a, a:visited, .toggle-description
   {
     color:#f80040;
+    transition: color 0.3s ease;
   }
+
+  .reponse-console a:hover
+  {
+    color: #c00030;
+  }
+
+  .toggle-description {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-family: Consolas, monospace;
+    font-size: 1rem;
+    background-color: #f80040;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-description:hover
+{
+    background-color: #c00030;
+}

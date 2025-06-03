@@ -12,8 +12,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const iconsList = document.querySelector('.social-icons');
 
     const fenetreAbout = document.querySelector('.fenetre-about');
-    const grilleProjets = document.querySelector('.grille-projets');
-
+    const grilleProjets = document.querySelector('.grille-projets');    
+    
     let commandesExecutees = [];
     let commandeASelectionner = -1;
 
@@ -45,6 +45,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 break;
 
             case "about":
+            case "About":
                 showAbout();
                 aboutUp = true;
                 responseLine.innerHTML = "Tapez \"back\" ou une autre commande pour cacher la section \"À propos\""
@@ -53,13 +54,13 @@ window.addEventListener('DOMContentLoaded', () => {
             case "linkedin":
             case "Linkedin":
             case "LinkedIn":
-                responseLine.innerHTML = 'Voici mon LinkedIn : <a href="https://fr.linkedin.com/in/gabriel-gdn" target="_blank" style="color:#f80040;text-decoration:underline;">cliquer ici</a>';
+                responseLine.innerHTML = 'Voici mon LinkedIn : <a href="https://fr.linkedin.com/in/gabriel-gdn" target="_blank" style="text-decoration:underline;">cliquer ici</a>';
                 break;
 
             case "github":
             case "Github":
             case "GitHub":
-                responseLine.innerHTML = 'Voici mon GitHub : <a href="https://github.com/QuartzWasTaken" target="_blank" style="color:#f80040;text-decoration:underline;">cliquer ici</a>';
+                responseLine.innerHTML = 'Voici mon GitHub : <a href="https://github.com/QuartzWasTaken" target="_blank" style="text-decoration:underline;">cliquer ici</a>';
                 break;
 
             default:
@@ -109,7 +110,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     const projects = [
-        { title: 'CHIP8', body: 'Un interpréteur de CHIP8 réalisé en C++ avec SDL2<br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/CHIP8-Interpreter" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>'},
+        { title: 'CHIP8', body: 'En début de première année de BUT Informatique, je me suis retrouvé à vouloir approfondir ma connaissance du C++. J\'ai donc démarré un projet d\'émulateur de <a href="https://fr.wikipedia.org/wiki/CHIP-8" target="_blank">CHIP8</a>.<br>Au fil de ce projet, j\'ai eu l\'occasion de me familiariser avec le <strong>C++ et ses interactions avec la librairie graphique SDL2</strong>. Le résultat final de ce projet est un émulateur de CHIP8 fonctionnel.<br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/CHIP8-Interpreter" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>'},
         { title: 'Snake avec Pathfinding', body: 'Un jeu de snake autonome capable de trouver le chemin le plus court en évitant les pavés, réalisé en C dans le cadre d\'un projet à l\'IUT<br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/SnakeIBC" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>' },
         { title: 'LCCore', body: 'Un plugin sécurisé et multifonctions pour un serveur Minecraft, réalisé en Java <br>Vous pouvez trouver le projet <a href="https://github.com/Leg0shii/LCCore/tree/prod" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>' }
     ];
@@ -127,12 +128,41 @@ window.addEventListener('DOMContentLoaded', () => {
     projects.forEach(proj => {
         const card = document.createElement('div');
         card.className = 'projet';
+        const maxLength = 150; // nombre de caractères visibles par défaut
+        const isTronque = proj.body.length > maxLength;
+        const resume = isTronque ? proj.body.slice(0, maxLength) + "..." : proj.body;
+
         card.innerHTML = `
-            <div class="project-header">${proj.title}</div>
-            <div class="project-body">${proj.body}</div>
-        `;
+        <div class="project-header">${proj.title}</div>
+        <div class="project-body">
+            <div class="texte-court">${resume}</div>
+            <div class="texte-complet" style="display:none;">${proj.body}</div>
+            ${isTronque ? '<button class="toggle-description">En savoir plus</button>' : ''}
+        </div>
+    `;
         projectGrid.appendChild(card);
     });
+
+    projectGrid.addEventListener('click', function(e) {
+        if (e.target.classList.contains('toggle-description')) {
+            const btn = e.target;
+            const projetBody = btn.parentElement;
+            const court = projetBody.querySelector('.texte-court');
+            const complet = projetBody.querySelector('.texte-complet');
+    
+            const isExpanded = complet.style.display === 'block';
+    
+            if (isExpanded) {
+                complet.style.display = 'none';
+                court.style.display = 'block';
+                btn.textContent = 'En savoir plus';
+            } else {
+                complet.style.display = 'block';
+                court.style.display = 'none';
+                btn.textContent = 'Voir moins';
+            }
+        }
+    });    
 
     document.querySelectorAll('a').forEach(button => {
         button.addEventListener('click', () => {
@@ -180,6 +210,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 commandesExecutees.push(typedText.textContent);
                 commandeASelectionner = commandesExecutees.length - 1;
             }
+
             typedText.textContent = '';
         }
     });
