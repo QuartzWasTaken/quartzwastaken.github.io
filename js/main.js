@@ -111,7 +111,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const projects = [
         { title: 'CHIP8', body: `En début de première année de BUT Informatique, j'ai voulu approfondir ma connaissance du C++.
-            J'ai donc démarré un projet d\'émulateur de <a href="https://fr.wikipedia.org/wiki/CHIP-8" target="_blank">CHIP8</a>.
+            J'ai donc démarré un projet personnel d\'émulateur de <a href="https://fr.wikipedia.org/wiki/CHIP-8" target="_blank">CHIP8</a>.
             <br>Au fil de ce projet, j'ai eu l'occasion de me familiariser avec le <strong>C++ et ses interactions avec la librairie graphique SDL2</strong>.
             Le résultat final de ce projet est un émulateur de CHIP8 fonctionnel.
             <br>Vous pouvez trouver le projet <a href="https://github.com/QuartzWasTaken/CHIP8-Interpreter" target="_blank" style="color:#f80040;text-decoration:underline;">ici</a>`},
